@@ -34,7 +34,7 @@ Output: "abcabccdcdcdef"
 ```
 
 ## Constraints:
-1 <= s.length <= 30
-s consists of lowercase English letters, digits, and square brackets '[]'.
-s is guaranteed to be a valid input.
-All the integers in s are in the range [1, 300].
+1. 1 <= s.length <= 30
+2. s consists of lowercase English letters, digits, and square brackets '[]'.
+3. s is guaranteed to be a valid input.
+4. All the integers in s are in the range [1, 300].
