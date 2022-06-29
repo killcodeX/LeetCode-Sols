@@ -12,27 +12,22 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversal = function (root) {
-  // In-Order Traversal ->
-  //  1. Recursively traverse through the left subtree
-  //  2. Visit current node
-  //  3. Recursively traverse through the right subtree
-
+var postorderTraversal = function (root) {
   // Initialize array of values
   let result = [];
 
   // Recursive function to traverse through subtrees
-  inorder(root, result);
+  postorder(root, result);
 
   return result;
 };
 
-const inorder = (node, result) => {
+const postorder = (node, result) => {
   if (!node) return null;
   // Traverse through left subtree
-  inorder(node.left, result);
-  // Visit node
-  result.push(node.val);
+  postorder(node.left, result);
   // Traverse through right subtree
-  inorder(node.right, result);
+  postorder(node.right, result); 
+  // Visit node
+  result.push(node.val); 
 };
