@@ -1,58 +1,43 @@
-function merge(arr, l, mid, r) {
-  let n1 = mid - l + 1;
-  let n2 = r - mid;
-  let a = new Array(n1);
-  let b = new Array(n2);
-
-  for (let i = 0; i < n1; i++) {
-    a[i] = arr[l + i];
-  }
-
-  for (let i = 0; i < n2; i++) {
-    b[i] = arr[mid + 1 + i];
-  }
-
+// helper function to merge the sort array
+function merge(num1, num2) {
+  let result = [];
   let i = 0;
   let j = 0;
-  let k = l;
 
-  while (i < n1 && j < n2) {
-    if (a[i] <= b[j]) {
-      arr[k] = a[i];
+  while (i < num1.length && j < num2.length) {
+    if (num2[j] >= num1[i]) {
+      result.push(num1[i]);
       i++;
     } else {
-      arr[k] = b[j];
+      result.push(num2[j]);
       j++;
     }
-    k++;
   }
 
-  while (i < n1) {
-    arr[k] = a[i];
+  while (i < num1.length) {
+    result.push(num1[i]);
     i++;
-    k++;
   }
 
-  while (j < n2) {
-    arr[k] = b[j];
+  while (j < num2.length) {
+    result.push(num2[j]);
     j++;
-    k++;
-  }
-}
-
-function mergeSort(arr, l, r) {
-  if (l < r) {
-    let mid = Math.floor(l + (r - l) / 2);
-    mergeSort(arr, l, mid);
-    mergeSort(arr, mid + 1, r);
-    merge(arr, l, mid, r);
   }
 
-  return arr;
+  return result;
 }
 
-let arr = [14, 7, 3, 12, 9, 11, 6, 2];
+// main function
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+}
 
-mergeSort(arr, 0, arr.length - 1);
+let arr = [4, 9, 7, 1, 2, 5, 6];
 
-console.log(arr);
+let res = mergeSort(arr);
+
+console.log(res); //[1, 2, 4, 5, 6, 7, 9]
