@@ -2,6 +2,8 @@
 
 [link](https://leetcode.com/problems/maximum-product-of-three-numbers/)
 
+[sol](https://www.youtube.com/watch?v=9A4Bebss1WQ)
+
 Given an integer array nums, find three numbers whose product is maximum and return the maximum product.
 
 ## Examples
