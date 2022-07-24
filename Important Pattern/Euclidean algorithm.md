@@ -9,11 +9,11 @@ When that occurs, they are the GCD of the original two numbers.
 
 ## Euclid's Algorithm
 
-```
-function gcd(a,b){
-    if(a == 0) return b
-    if(b == 0) return a
-    return gcd(b, a%b)
+```javascript
+function gcd(a, b) {
+  if (a == 0) return b;
+  if (b == 0) return a;
+  return gcd(b, a % b);
 }
 ```
 
@@ -33,19 +33,18 @@ The greatest common divisor of 2 and 10 is 2.
 ## Solution
 
 ```javascript
-function gcd(a,b){
-    if(a == 0) return b
-    if(b == 0) return a
-    return gcd(b, a%b)
+function gcd(a, b) {
+  if (a == 0) return b;
+  if (b == 0) return a;
+  return gcd(b, a % b);
 }
 
-var findGCD = function(nums) {
+var findGCD = function (nums) {
+  nums.sort((a, b) => a - b);
 
-    nums.sort((a,b) => a-b)
+  let max = nums[nums.length - 1];
+  let min = nums[0];
 
-    let max = nums[nums.length - 1]
-    let min = nums[0]
-    
-    return gcd(max,min)
+  return gcd(max, min);
 };
 ```
