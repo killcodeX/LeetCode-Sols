@@ -14,7 +14,7 @@ first we get sum of first subarray, which is 6, consists of ```[1,2,3]```,
 
 then to calculate sum for next subarray (2nd), logic is ```[1,2,3] - [1] + [4]``` which makes it now -> ```[2,3,4]```
 
-```
+```javascript
 var findMaxSum = function (nums, k) {
   let sum = 0;
 
