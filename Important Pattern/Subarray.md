@@ -39,3 +39,26 @@ var zeroFilledSubarray = function(nums) {
     
 };
 ```
+
+* Brute Force method of printing all subarray possible combinations
+
+```
+function createSub(nums){
+	let currSub = 1
+  let numberofSub = 0
+  
+  while(currSub <= nums.length){
+  	let start = 0
+    let end = currSub
+    while(end <= nums.length){
+    	console.log(nums.slice(start, end))
+      console.log({start, end})
+      numberofSub++
+      start+=1
+      end+=1
+    }
+    currSub++
+  }
+  console.log('Total number of subarray is --', numberofSub)
+}
+```
