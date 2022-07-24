@@ -32,7 +32,7 @@ The greatest common divisor of 2 and 10 is 2.
 
 ## Solution
 
-```
+```javascript
 function gcd(a,b){
     if(a == 0) return b
     if(b == 0) return a
@@ -45,8 +45,7 @@ var findGCD = function(nums) {
 
     let max = nums[nums.length - 1]
     let min = nums[0]
-
-
+    
     return gcd(max,min)
 };
 ```

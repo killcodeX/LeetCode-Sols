@@ -2,7 +2,7 @@
 
 You can get sum of any array using Binary Search too,
 
-```
+```javascript
 function binarySearch(arr){
     let start = 0
     let end = arr.length
