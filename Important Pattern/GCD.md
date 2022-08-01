@@ -12,3 +12,4 @@ function gcd(a, b) {
   return gcd(b, a % b);
 }
 ```
+
