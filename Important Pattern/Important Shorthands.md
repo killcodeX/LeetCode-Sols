@@ -23,4 +23,24 @@ Object.entries(obj1).map((item) => arr.push([item[0] - "0", item[1]]));
 //[[1,6],[3,9],[4,5]]
 ```
 
+## Get Letter Combinations or permutation
 
+```To read more, Recursion -> 17```
+
+```javascript
+let st = []
+let res = []
+function permute(string, index) {
+  if (index === digits.length) {
+    res.push(string);
+    return;
+  }
+
+  for (let x of obj[st[index]]) {
+    permute(string + x, index + 1);
+  }
+}
+permute("", 0);
+
+//[[1,6],[3,9],[4,5]]
+```
