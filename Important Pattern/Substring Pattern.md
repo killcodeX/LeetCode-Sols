@@ -4,7 +4,7 @@ I will first give the solution then show you the magic template.
 
 ## The code of solving this problem is below. It might be the shortest among all solutions provided in Discuss.
 
-```java
+```c++
 string minWindow(string s, string t) {
         vector<int> map(128,0);
         for(auto c: t) map[c]++;
@@ -24,7 +24,7 @@ string minWindow(string s, string t) {
 
 For most substring problem, we are given a string and need to find a substring of it which satisfy some restrictions. A general way is to use a hashmap assisted with two pointers. The template is given below.
 
-```Java
+```c++
 int findSubstring(string s){
         vector<int> map(128,0);
         int counter; // check whether the substring is valid
@@ -56,10 +56,10 @@ One thing needs to be mentioned is that when asked to find maximum substring, we
 
 The code of solving Longest Substring with At Most Two Distinct Characters is below:
 
-```Java
+```c++
 int lengthOfLongestSubstringTwoDistinct(string s) {
         vector<int> map(128, 0);
-        int counter=0, begin=0, end=0, d=0; 
+        int counter=0, begin=0, end=0, d=0;
         while(end<s.size()){
             if(map[s[end++]]++==0) counter++;
             while(counter>2) if(map[s[begin++]]--==1) counter--;
@@ -71,12 +71,12 @@ int lengthOfLongestSubstringTwoDistinct(string s) {
 
 ## The code of solving Longest Substring Without Repeating Characters is below:
 
-```java
+```c++
 int lengthOfLongestSubstring(string s) {
         vector<int> map(128,0);
-        int counter=0, begin=0, end=0, d=0; 
+        int counter=0, begin=0, end=0, d=0;
         while(end<s.size()){
-            if(map[s[end++]]++>0) counter++; 
+            if(map[s[end++]]++>0) counter++;
             while(counter>0) if(map[s[begin++]]-->1) counter--;
             d=max(d, end-begin); //while valid, update d
         }
