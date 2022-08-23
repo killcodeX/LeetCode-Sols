@@ -33,7 +33,7 @@ var numberOfSubstrings = function (s) {
     //Once the first valid substring is found, the if statement below will run every iteration,
     //which in turn means that a new valid substring is found every iteration
     if (a[0] && a[1] && a[2]) {
-      ans++;
+      ans+=s.length - i;
 
       //Shrink the window while it's still valid, stopping before the iteration that will invalidate it
       while (a[s.charCodeAt(start) - 97] > 1) {
