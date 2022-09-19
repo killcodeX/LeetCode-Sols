@@ -1,5 +1,9 @@
 # Count Number of Nice Subarrays
 
+[link](https://leetcode.com/problems/count-number-of-nice-subarrays/)
+[explanation1](https://leetcode.com/problems/count-number-of-nice-subarrays/discuss/508217/C%2B%2B%3A-Visual-explanation.-O(1)-space.-Two-pointers)
+[explanation2](https://leetcode.com/problems/count-number-of-nice-subarrays/discuss/419378/JavaC%2B%2BPython-Sliding-Window-O(1)-Space)
+
 Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.
 
 Return the number of nice sub-arrays.
