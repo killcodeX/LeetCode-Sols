@@ -14,6 +14,8 @@ Now, we would have a look at a very obvious solution to the given problem.
 
 In this approach, you're checking what the maximum subarray at each element is. Kadane's Algorithm says that the maximum subarray at each element is either the current element itself, or the current element plus the maximum subarray ending at the previous element.
 
+To understand working check [this](https://dev.to/alisabaj/kadane-s-algorithm-the-maximum-subarray-problem-c31) out!!
+
 ```Javascript
 function maxSubArray(nums) {
   let maxCurrent = nums[0];
