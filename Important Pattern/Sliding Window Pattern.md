@@ -7,12 +7,24 @@
 
 In fixed windows size we are always provided with fixed subarray/substring size, so 
 
-* Initially we start window varibales, `start` and `end` at starting index, 
+* Initially we start window variables, `start` and `end` at starting index, 
 * Then we will keep on increasing window size (increasing `end++` varibale) until we reach the given wondow size (`if(end-start+1 < k) `),
 * Once we reach the window size (`if(end-start+1 == k) `), now we try to maintain the window size,
-* After hitting window size, when we increase `end` variable we have to increase `start` varible accordingly.
+* After hitting window size, when we increase `end` variable we have to increase `start` variable accordingly.
 
-## Minimum window
+### Variable Window Size
+
+In this problem, instead of subarray size we are given some other condition like largest sum or product
+
+* Initially we start window variables, `start` and `end` at starting index, 
+* We would first try to satisfy the given condition, once the given condition is met, it means we have met with oour window size.
+* In Variable Window Size, size of window doesnt matter but the condition at which it is met,
+* Now comes the tricky part, remmber in varibale window size we are never concerned with window size but rather with condtion given,
+* Now how we will mantain the window size, it purely depnds on elemnts given or when we are hitting the condition.
+
+
+## Examples
+### Minimum window
 
 ```Java
 public String minWindow(String s, String t) {
@@ -42,7 +54,7 @@ public String minWindow(String s, String t) {
   }
 ```
 
-## Longest Substring - at most K distinct characters
+### Longest Substring - at most K distinct characters
 
 ```Java
 public int lengthOfLongestSubstringKDistinct(String s, int k) {
@@ -69,7 +81,7 @@ public int lengthOfLongestSubstringKDistinct(String s, int k) {
   }
 ```
 
-## Longest Substring - at most 2 distinct characters
+### Longest Substring - at most 2 distinct characters
 
 ```Java
 public int lengthOfLongestSubstringTwoDistinct(String s) {
@@ -96,7 +108,7 @@ public int lengthOfLongestSubstringTwoDistinct(String s) {
   }
 ```
 
-## LongestSubstring - without repeating characters
+### LongestSubstring - without repeating characters
 
 ```Java
 public int lengthOfLongestSubstring2(String s) {
@@ -123,7 +135,7 @@ public int lengthOfLongestSubstring2(String s) {
   }
 ```
 
-## LongestSubstring - without repeating characters (Part 2)
+### LongestSubstring - without repeating characters (Part 2)
 
 1. Use two pointers: start and end to represent a window.
 2. Move end to find a valid window.
