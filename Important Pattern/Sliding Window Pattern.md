@@ -1,5 +1,17 @@
 # Sliding Window Pattern
 
+
+## How to approach a window size problem
+
+### Fixed Window Size
+
+In fixed windows size we are always provided with fixed subarray/substring size, so 
+
+* Initially we start window varibales, `start` and `end` at starting index, 
+* Then we will keep on increasing window size (increasing `end++` varibale) until we reach the given wondow size (`if(end-start+1 < k) `),
+* Once we reach the window size (`if(end-start+1 == k) `), now we try to maintain the window size,
+* After hitting window size, when we increase `end` variable we have to increase `start` varible accordingly.
+
 ## Minimum window
 
 ```Java
