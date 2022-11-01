@@ -1,29 +1,28 @@
 # Sliding Window Pattern
 
-
 ## How to approach a window size problem
 
 ### Fixed Window Size
 
-In fixed windows size we are always provided with fixed subarray/substring size, so 
+In fixed windows size we are always provided with fixed subarray/substring size, so
 
-* Initially we start window variables, `start` and `end` at starting index, 
-* Then we will keep on increasing window size (increasing `end++` varibale) until we reach the given wondow size (`if(end-start+1 < k) `),
-* Once we reach the window size (`if(end-start+1 == k) `), now we try to maintain the window size,
-* After hitting window size, when we increase `end` variable we have to increase `start` variable accordingly.
+- Initially we start window variables, `start` and `end` at starting index,
+- Then we will keep on increasing window size (increasing `end++` varibale) until we reach the given wondow size (`if(end-start+1 < k) `),
+- Once we reach the window size (`if(end-start+1 == k) `), now we try to maintain the window size,
+- After hitting window size, when we increase `end` variable we have to increase `start` variable accordingly.
 
 ### Variable Window Size
 
 In this problem, instead of subarray size we are given some other condition like largest sum or product
 
-* Initially we start window variables, `start` and `end` at starting index, 
-* We would first try to satisfy the given condition, once the given condition is met, it means we have met with oour window size.
-* In Variable Window Size, size of window doesnt matter but the condition at which it is met,
-* Now comes the tricky part, remmber in varibale window size we are never concerned with window size but rather with condtion given,
-* Now how we will mantain the window size, it purely depnds on elemnts given or when we are hitting the condition.
-
+- Initially we start window variables, `start` and `end` at starting index,
+- We would first try to satisfy the given condition, once the given condition is met, it means we have met with oour window size.
+- In Variable Window Size, size of window doesnt matter but the condition at which it is met,
+- Now comes the tricky part, remmber in varibale window size we are never concerned with window size but rather with condtion given,
+- Now how we will mantain the window size, it purely depnds on elemnts given or when we are hitting the condition.
 
 ## Examples
+
 ### Minimum window
 
 ```Java
@@ -56,29 +55,46 @@ public String minWindow(String s, String t) {
 
 ### Longest Substring - at most K distinct characters
 
-```Java
-public int lengthOfLongestSubstringKDistinct(String s, int k) {
-    int[] map = new int[256];
-    int start = 0, end = 0, maxLen = Integer.MIN_VALUE, counter = 0;
+```javascript
+function kUniqueChar(s, k) {
+  let start = 0;
+  let end = 0;
+  let longest = 0;
+  let map = new Map();
 
-    while (end < s.length()) {
-      final char c1 = s.charAt(end);
-      if (map[c1] == 0) counter++;
-      map[c1]++;
-      end++;
-
-      while (counter > k) {
-        final char c2 = s.charAt(start);
-        if (map[c2] == 1) counter--;
-        map[c2]--;
-        start++;
-      }
-
-      maxLen = Math.max(maxLen, end - start);
+  while (end < s.length) {
+    if (!map.has(s[end])) {
+      map.set(s[end], 1);
+    } else {
+      map.set(s[end], map.get(s[end]) + 1);
     }
 
-    return maxLen;
+    if (map.size > k) {
+      while (map.size > k) {
+        if (map.get(s[start]) > 1) {
+          map.set(s[start], map.get(s[start]) - 1);
+        } else {
+          map.delete(s[start]);
+        }
+        start++;
+      }
+      end++;
+    } else if (map.size == k) {
+      longest = Math.max(longest, end - start + 1);
+      end++;
+    } else {
+      end++;
+    }
   }
+
+  return longest;
+}
+
+let str = "ababcbcca";
+
+let res = kUniqueChar(str, 2);
+
+console.log("final answer --->", res);
 ```
 
 ### Longest Substring - at most 2 distinct characters
@@ -153,7 +169,7 @@ string minWindow(string s, string t) {
 	// counter represents the number of chars of t to be found in s.
 	size_t start = 0, end = 0, counter = t.size(), minStart = 0, minLen = INT_MAX;
 	size_t size = s.size();
-	
+
 	// Move end to find a valid window.
 	while (end < size) {
 		// If char in s exists in t, decrease counter
