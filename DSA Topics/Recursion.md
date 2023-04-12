@@ -85,3 +85,69 @@ var subsetsWithDup = function (nums) {
   return res;
 };
 ```
+
+### To find Permutation of given array
+
+#### Approach 1
+
+```
+Input: nums = [1,2,3]
+Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+```
+
+```javascript
+function recur(nums, arr, ans, freq) {
+  if (arr.length == nums.length) {
+    ans.push([...arr]);
+    return;
+  }
+
+  for (let i = 0; i < nums.length; i++) {
+    if (!freq[i]) {
+      freq[i] = true;
+      arr.push(nums[i]);
+      recur(nums, arr, ans, freq);
+      arr.pop();
+      freq[i] = false;
+    }
+  }
+}
+
+var permute = function (nums) {
+  let ans = [];
+  let arr = [];
+  let freq = new Array(nums.length).fill(false);
+  recur(nums, arr, ans, freq);
+  return ans;
+};
+```
+
+#### Approach 2
+
+```javascript
+function swap(j, i, nums) {
+  let temp = nums[j];
+  nums[j] = nums[i];
+  nums[i] = temp;
+}
+
+function recur(i, nums, ans) {
+  if (i == nums.length) {
+    ans.push([...nums]);
+    return;
+  }
+
+  for (let j = i; j < nums.length; j++) {
+    swap(j, i, nums);
+    recur(i + 1, nums, ans);
+    swap(j, i, nums);
+  }
+}
+
+var permute = function (nums) {
+  let ans = [];
+  recur(0, nums, ans);
+  return ans;
+};
+P;
+```
