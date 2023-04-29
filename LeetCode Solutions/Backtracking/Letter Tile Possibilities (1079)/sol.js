@@ -22,7 +22,6 @@ function recur(tiles, arr, flag, res) {
 var numTilePossibilities = function (tiles) {
   let res = new Set();
   let flag = new Array(tiles.length).fill(false);
-  recur(tiles, [], flag, res);
-  //console.log(res)
+  recur(tiles, [], flag, res)
   return res.size;
 };
