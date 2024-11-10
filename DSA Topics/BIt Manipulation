@@ -1,0 +1,136 @@
+Bit manipulation can be a powerful tool for solving various problems efficiently. Here are some tricks and techniques to help you with bit manipulation questions:
+
+## Basic Operations
+
+1. AND (&): Isolates specific bits (e.g., to check if a bit is set).
+
+```javascript
+// Check if the ith bit is set
+if (num & (1 << i)) { ... }
+```
+
+2. OR (|): Sets specific bits.
+
+```javascript
+// Set the ith bit
+num |= (1 << i);
+```
+
+3. XOR (^): Toggles specific bits.
+
+```javascript
+// Toggle the ith bit
+num ^= (1 << i);
+```
+
+4. NOT (~): Inverts all bits.
+
+```javascript
+// Invert all bits
+invertedNum = ~num;
+```
+
+5. Left Shift (<<): Multiplies the number by 2 for each shift.
+
+```javascript
+// Multiply num by 2^i
+num << i;
+```
+
+6. Right Shift (>>): Divides the number by 2 for each shift (floor for positive numbers).
+
+```javascript
+// Divide num by 2^i
+num >> i;
+```
+
+## Common Tricks
+
+1. Check if a number is odd or even:
+
+```javascript
+// Odd if the least significant bit is 1
+if (num & 1) { ... } // Odd
+else { ... } // Even
+```
+
+2. Swap two numbers without a temporary variable:
+
+```javascript
+a ^= b;
+b ^= a;
+a ^= b;
+```
+
+3. Set a specific bit:
+
+```javascript
+// Set the ith bit
+num |= (1 << i);
+```
+
+4. Toggle a specific bit:
+
+```javascript
+// Toggle the ith bit
+num ^= (1 << i);
+```
+
+5. Check if the nth bit is set:
+```javascript
+// Check if the ith bit is set
+if (num & (1 << i)) { ... }
+```
+
+6. Count the number of set bits (Hamming weight):
+
+```javascript
+function countSetBits(num) {
+    let count = 0;
+    while (num) {
+        count += num & 1;
+        num >>= 1;
+    }
+    return count;
+}
+```
+
+7. Clear a specific bit:
+
+```javascript
+// Clear the ith bit
+num &= ~(1 << i);
+```
+
+8. Check if a number is a power of two:
+
+```javascript
+// A power of two has exactly one bit set
+if (num > 0 && (num & (num - 1)) === 0) { ... }
+```
+
+9. Reverse the bits of a number:
+
+```javascript
+function reverseBits(num) {
+    let result = 0;
+    for (let i = 0; i < 32; i++) {
+        result <<= 1;
+        result |= num & 1;
+        num >>= 1;
+    }
+    return result;
+}
+```
+
+10. Find the only non-repeating element in an array where every other element repeats twice:
+
+```javascript
+function findUnique(arr) {
+    let unique = 0;
+    for (let num of arr) {
+        unique ^= num;
+    }
+    return unique;
+}
+```
