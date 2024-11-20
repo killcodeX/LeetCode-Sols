@@ -13,12 +13,12 @@ Let's assume that the provided array A is
 and the output expected is
 `A = [2, 2, 2, 0, 0, 0, 1, 1, 1]`
 
-To solve the problem, we need to first select the order. For this example, let's select 2,1,0.
-Now we need to have 3 pointers namely start, end, and P, pointing to three different indices of the array.
+To solve the problem, we need to first select the order. For this example, let's select 0,1,2.
+Now we need to have 3 pointers namely low, mid & high pointing to three different indices of the array.
 
-The start will denote the first index of the middle element i.e 0 over here. The End will denote the last index of the middle element and pointer P will be used to traverse the array.
+The low and mid will denote the first index of the middle element i.e 0 over here. The high will denote the last index of the array.
 
-The loop will run while the P is not equal to End. As the P traverses, if P encounters 2, it will swap it with start and increment the start. Similarly, if P encounters 1, it will swap it with end and decrement end. The code is as follows:-
+The loop will run while the mid is lower or equal to high. As the mid traverses, if mid encounters 0, it will swap it with low and increment the low. Similarly, if mid encounters 2, it will swap it with high and decrement high. The code is as follows:-
 
 ```javascript
 function swap(arr, a, b) {
